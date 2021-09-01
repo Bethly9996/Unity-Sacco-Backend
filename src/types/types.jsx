@@ -1,0 +1,10 @@
+
+export const types = {
+	login: '[ auth ] Login',
+	logout: '[ auth ] Logout',
+
+	startCheckingToken: '[ auth ] Checking Token',
+	finishCheckingToken: '[ auth ] Finish checking token',
+
+	creatingTransaction: '[ transaction ] Creating Transaction'
+}
