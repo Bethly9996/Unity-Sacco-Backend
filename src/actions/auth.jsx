@@ -99,6 +99,7 @@ export const startCheckingAuthToken = (id) => {
         role: user.role,
         birthday: user.birthday,
         nationality: user.nationality,
+        status: user.status
       })
     );
 
@@ -117,6 +118,7 @@ const login = (user) => ({
     role: user.role,
     birthday: user.birthday,
     nationality: user.nationality,
+    status: user.status
   },
 });
 

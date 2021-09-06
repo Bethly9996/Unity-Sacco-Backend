@@ -43,3 +43,4 @@ export const fetchConToken = ( endpoint, data, method = 'GET' ) => {
         });
     }
 }
+

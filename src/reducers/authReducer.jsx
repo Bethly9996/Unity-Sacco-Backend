@@ -21,6 +21,7 @@ export const authReducer = (state = initialState, action) => {
 				role: action.payload.role,
 				birthday: action.payload.birthday,
 				nationality: action.payload.nationality,
+				status: action.payload.status,
 				checking: false
 			}
 		

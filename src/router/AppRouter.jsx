@@ -7,6 +7,7 @@ import {
 	Redirect,
 	Switch
 } from 'react-router-dom'
+import { startGettingUsers } from '../actions/admin'
 import { finishCheckingToken, startCheckingAuthToken } from '../actions/auth'
 import { AcountInfoScreen } from '../components/account/AcountInfoScreen'
 import { LoginScreen } from '../components/auth/LoginScreen'
@@ -37,9 +38,12 @@ export const AppRouter = () => {
 			setIsAuthenticated(false);
 			dispatch(finishCheckingToken());
 		}
-	
 
-	}, [token, id, dispatch])
+		if (role === 'ADMIN_ROLE') {
+				dispatch(startGettingUsers());
+		}
+
+	}, [token, id, dispatch, role])
 
 
 	return (

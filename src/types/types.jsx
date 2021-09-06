@@ -6,5 +6,9 @@ export const types = {
 	startCheckingToken: '[ auth ] Checking Token',
 	finishCheckingToken: '[ auth ] Finish checking token',
 
-	creatingTransaction: '[ transaction ] Creating Transaction'
+	creatingTransaction: '[ transaction ] Creating Transaction',
+
+
+	getUsers: '[ admin ] Get User List',
+	deleteUser: '[ admin ] User Deleted'
 }

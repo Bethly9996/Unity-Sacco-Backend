@@ -1,8 +1,7 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch  } from "react-redux";
 import styled from "styled-components";
 import { startCreatingTransaction } from "../../actions/transactions";
-import { fetchConToken } from "../../helpers/fetchHelper";
 import { useForm } from "../../hooks/useForm";
 import { Navbar } from "../navbar/Navbar";
 
