@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import Swal from 'sweetalert2'
-import { startGettingUsers, deleteUser } from '../../actions/admin'
+import { startGettingUsers, deleteUser, startDeletingUser } from '../../actions/admin'
 import { fetchConToken } from '../../helpers/fetchHelper'
 import { Navbar } from '../navbar/Navbar'
 
@@ -30,11 +30,7 @@ export const UsersInfoScreen = () => {
 			if (result.isConfirmed) {			
 
 				// TODO: CREATE TODO ACTION
-				// startDeletingUser( id );
-
-				
-				// dispatch(deleteUser());
-				// dispatch(startGettingUsers());
+				dispatch(startDeletingUser( id ));				
 
 				Swal.fire(
 					'Deleted!',

@@ -1,4 +1,4 @@
-import { fetchSinToken } from "../helpers/fetchHelper";
+import { fetchConToken, fetchSinToken } from "../helpers/fetchHelper";
 import { types } from "../types/types"
 
 
@@ -22,6 +22,20 @@ const getUsers = (total, users) => ({
 		users
 	}
 })
+
+
+export const startDeletingUser = ( id ) => {
+	
+	return async( dispatch ) => {
+		
+		const resp = await fetchConToken(`users/${id}`, {},'DELETE');
+		const body = await resp.json();
+	
+		// console.log(body);
+		await dispatch(deleteUser());
+		await dispatch(startGettingUsers());
+	}
+}
 
 
 export const deleteUser = () => ({ type: types.deleteUser })
