@@ -30,7 +30,7 @@ export const UsersInfoScreen = () => {
 			if (result.isConfirmed) {			
 
 				// TODO: CREATE TODO ACTION
-				startDeletingUser( id );
+				// startDeletingUser( id );
 
 				
 				// dispatch(deleteUser());
@@ -57,12 +57,12 @@ export const UsersInfoScreen = () => {
 	}
 
 
-	const startDeletingUser = async( id ) => {
-		const resp = await fetchConToken(`users/${id}`, {},'DELETE');
-		const body = await resp.json();
+	// const startDeletingUser = async( id ) => {
+	// 	const resp = await fetchConToken(`users/${id}`, {},'DELETE');
+	// 	const body = await resp.json();
 
-		console.log(body);
-	}
+	// 	console.log(body);
+	// }
 
 
 	

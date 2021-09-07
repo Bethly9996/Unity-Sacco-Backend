@@ -1,5 +1,5 @@
-const baseUrl = process.env.REACT_APP_BASEURL;
-
+// const baseUrl = process.env.REACT_APP_BASEURL;
+const baseUrl= 'http://localhost:8080/api'
 
 export const fetchSinToken = (endpoint, data, method = 'GET') => {
 	
@@ -11,7 +11,8 @@ export const fetchSinToken = (endpoint, data, method = 'GET') => {
         return fetch( url, {
             method,
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify( data )
         });

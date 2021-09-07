@@ -52,6 +52,8 @@ export const startRegister = (
 export const startLogin = (email, password) => {
   return async (dispatch) => {
     const resp = await fetchSinToken("login/", { email, password }, "POST");
+
+    console.log(resp)
     const body = await resp.json();
 
     const { user } = body;
@@ -72,6 +74,7 @@ export const startLogin = (email, password) => {
         role: user.role,
         birthday: user.birthday,
         nationality: user.nationality,
+        status: user.status
       })
     );
 
