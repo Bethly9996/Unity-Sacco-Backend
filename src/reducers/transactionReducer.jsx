@@ -2,7 +2,8 @@ import { types } from "../types/types";
 
 
 const initialState = {
-	lastTransaction: {}
+	lastTransaction: {},
+	getTransactions:{}
 }
 
 export const transactionReducer = (state = initialState, action) => {
@@ -13,7 +14,13 @@ export const transactionReducer = (state = initialState, action) => {
 				...state,
 				lastTransaction: action.payload.amount
 			}
-	
+		
+		case types.getTransactions:
+			return{
+				...state,
+				getTransactions: action.payload
+			}
+
 		default:
 			return state;
 	}

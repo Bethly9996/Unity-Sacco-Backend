@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom'
 import { startGettingUsers } from '../actions/admin'
 import { finishCheckingToken, startCheckingAuthToken } from '../actions/auth'
+import { startGettingTransactions } from '../actions/transactions'
 import { AcountInfoScreen } from '../components/account/AcountInfoScreen'
 import { LoginScreen } from '../components/auth/LoginScreen'
 import { RegisterScreen } from '../components/auth/RegisterScreen'
@@ -40,7 +41,9 @@ export const AppRouter = () => {
 		}
 
 		if (role === 'ADMIN_ROLE') {
-				dispatch(startGettingUsers());
+			
+			dispatch(startGettingUsers());
+			dispatch(startGettingTransactions());
 		}
 
 	}, [token, id, dispatch, role])

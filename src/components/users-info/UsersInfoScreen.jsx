@@ -98,23 +98,23 @@ export const UsersInfoScreen = () => {
 
 
 
-const Container = styled.div`
+export const Container = styled.div`
 	width: 80vw;
 	margin: 0px 270px;
 `;
 
-const MainTitle = styled.h1`
+export const MainTitle = styled.h1`
 	margin: 50px 0px;
 	padding-left: 20px;
 `;
 
-const UserTables = styled.table`
+export const UserTables = styled.table`
 	width: 100%;
 `;
 
-const UserTableContainer = styled.tr``;
+export const UserTableContainer = styled.tr``;
 
-const UserTableHeader = styled.th`
+export const UserTableHeader = styled.th`
 	width: ${props => props.size};
 	padding: 12px 8px;
 	color: white;
@@ -124,13 +124,13 @@ const UserTableHeader = styled.th`
 	background-color: #2980B9;
 `;
 
-const UserTableRow = styled.td`
+export const UserTableRow = styled.td`
 	padding: 12px;
 	border: 1px solid #ccc;
 	font-size: 18px;
 `;
 
-const DeleteRow = styled.td`
+export const DeleteRow = styled.td`
 	border: 1px solid #ccc;
 	font-size: 18px;
 	background-color: #E53737;
@@ -142,7 +142,7 @@ const DeleteRow = styled.td`
 
 `;
 
-const DeleteIcon = styled.i`
+export const DeleteIcon = styled.i`
 	width: 100%;
 	text-align: center;
 	background-color: #E53737;

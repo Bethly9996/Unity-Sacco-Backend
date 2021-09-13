@@ -1,4 +1,4 @@
-import { transactionFetch } from "../helpers/fetchHelper";
+import { fetchSinToken, transactionFetch } from "../helpers/fetchHelper";
 import { types } from "../types/types";
 
 
@@ -20,6 +20,20 @@ export const startCreatingTransaction = (amount, userFrom, userTo) => {
 }
 
 
+export const startGettingTransactions = () => {
+	return async( dispatch ) => {
+		
+		const resp = await fetchSinToken('transactions/');
+		const body = await resp.json();
+
+		const transactions = body;
+
+		dispatch( getTransactions( transactions ));
+
+	}
+}
+
+
 
 const creatingTransaction = (amount, userFrom, userTo, amountLess, amountTo) => ({
 	type: types.creatingTransaction,
@@ -27,3 +41,11 @@ const creatingTransaction = (amount, userFrom, userTo, amountLess, amountTo) => 
 		amount, userFrom, userTo, amountLess, amountTo
 	}
 })
+
+const getTransactions = ( transactions ) => ({
+	type: types.getTransactions,
+	payload: {
+		transactions
+	}
+})
+
