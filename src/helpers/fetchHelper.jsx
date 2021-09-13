@@ -42,6 +42,34 @@ export const fetchConToken = ( endpoint, data, method = 'GET' ) => {
             },
             body: JSON.stringify( data )
         });
+
     }
 }
 
+
+export const transactionFetch = ( endpoint, data, method = 'GET' ) => {
+
+    const url = `${ baseUrl }/${ endpoint }`;
+    const token = localStorage.getItem('token') || '';
+
+    if ( method === 'GET' ) {
+        return fetch( url, {
+            method,
+            headers: {
+                'authToken': token
+            }
+        });
+    } else {
+        return fetch( url, {
+            method,
+            headers: {
+                'authToken': token,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+
+            },
+            body: JSON.stringify( data )
+        });
+
+    }
+}

@@ -1,38 +1,52 @@
-import React from "react";
-import { useDispatch  } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector  } from "react-redux";
 import styled from "styled-components";
+import Swal from "sweetalert2";
 import { startCreatingTransaction } from "../../actions/transactions";
+import { fetchConToken, fetchSinToken, transactionFetch } from "../../helpers/fetchHelper";
 import { useForm } from "../../hooks/useForm";
 import { Navbar } from "../navbar/Navbar";
 
 export const TransactionsScreen = () => {
   
-  // const { id } = useSelector(state => state.auth);
+  const { id } = useSelector(state => state.auth);
+  const { lastTransaction } = useSelector(state => state.transactions);
+
   const dispatch = useDispatch();
   
   const [ transactionValues, handleInputChange ] = useForm({
     amount: '',
-    userId: ''
+    userFrom: '',
+    userTo: ''
   });
 
-  let { amount, userId } = transactionValues;
+  let { amount, userFrom, userTo } = transactionValues;
   
-  
-  const formIsValid = () => {
-    
-  }
-
 
 
   const transactionSubmit = async(e) => {
     e.preventDefault();
     
-    // amount = Number(amount);
-    // transactionAction(500);
+    amount = Number(amount);
 
-    dispatch(startCreatingTransaction(500, userId))
+    if (userTo !== id) {
+      return Swal.fire('Error', 'This is not your ID', 'error')
+    }
 
+    if (userFrom === id) {
+      return Swal.fire('Error', 'You can not make a transaction to yourself', 'error')
+    }
+
+
+    if (userTo === undefined || userFrom === undefined || amount === undefined) {
+      return Swal.fire('Error', 'Please complete all the fields', 'error')
+    }
+
+    dispatch(startCreatingTransaction(amount, userFrom, userTo));
+
+    console.log(lastTransaction);
   }
+
 
   return (
     <div>
@@ -40,17 +54,34 @@ export const TransactionsScreen = () => {
 
       <Container>
         <SideContainer>
-          <SubTitle alignment="center">Your Transactions</SubTitle>
-
-          <CenterInput>
-            <CustomInput />
-          </CenterInput>
+           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%'}}>
+            
+            {
+              (lastTransaction !== {}) 
+              && 
+              <div>
+                  <SubTitle>Last Transaction</SubTitle>
+            
+                  <SubTitle style={{marginBottom: '20px'}}>Amount:</SubTitle>
+                  <div>{lastTransaction.amount}</div>
+                  
+                  
+                  <SubTitle style={{marginBottom: '20px'}}>Your ID:</SubTitle>
+                  <div>{lastTransaction.userTo}</div>
+                  
+                  
+                  <SubTitle style={{marginBottom: '20px'}}>Person who recieves the money:</SubTitle>
+                  <div>{lastTransaction.userFrom}</div>
+              </div>
+            
+            }
+           </div>
         </SideContainer>
 
         <SideContainer>
           <SubTitle>Make a transaction</SubTitle>
 
-          <Paragraph>Your ID: </Paragraph>
+          <Paragraph>Your ID: { id }</Paragraph>
 
           <FormTag onSubmit={ transactionSubmit }>
             <CustomInput 
@@ -59,10 +90,19 @@ export const TransactionsScreen = () => {
               value={ amount }
               onChange={ handleInputChange }
             />
+
+
+            <CustomInput 
+              placeholder='Put your ID' 
+              name='userTo'
+              value={ userTo }
+              onChange={ handleInputChange }
+            />
+ 
             <CustomInput 
               placeholder='Put the user ID' 
-              name='userId'
-              value={ userId }
+              name='userFrom'
+              value={ userFrom }
               onChange={ handleInputChange }
             />
 

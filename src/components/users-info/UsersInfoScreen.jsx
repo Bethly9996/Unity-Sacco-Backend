@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import Swal from 'sweetalert2'
-import { startGettingUsers, deleteUser, startDeletingUser } from '../../actions/admin'
-import { fetchConToken } from '../../helpers/fetchHelper'
+import { startDeletingUser } from '../../actions/admin'
 import { Navbar } from '../navbar/Navbar'
 
 export const UsersInfoScreen = () => {
@@ -12,7 +11,6 @@ export const UsersInfoScreen = () => {
 	const { total } = useSelector(state => state.admin);
 	const dispatch = useDispatch();
 
-	const [isUnMounted, setIsUnMounted] = useState(false);
 
 
 	const users = total.users;
@@ -51,15 +49,6 @@ export const UsersInfoScreen = () => {
 		});
 		
 	}
-
-
-	// const startDeletingUser = async( id ) => {
-	// 	const resp = await fetchConToken(`users/${id}`, {},'DELETE');
-	// 	const body = await resp.json();
-
-	// 	console.log(body);
-	// }
-
 
 	
 	return (

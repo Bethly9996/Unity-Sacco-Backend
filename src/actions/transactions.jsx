@@ -1,27 +1,29 @@
+import { transactionFetch } from "../helpers/fetchHelper";
 import { types } from "../types/types";
 
 
 
-export const startCreatingTransaction = (amount, userId) => {
+export const startCreatingTransaction = (amount, userFrom, userTo) => {
 	return async(dispatch) => {
 		
-		//TODO: FIX THE ENDPOINT OR THE FETCH TO CREATE TRANSACTIONS SUCCESSFULLY
+		const resp = await transactionFetch(`transactions/`, { amount, userFrom, userTo }, 'POST');
+		const body = await resp.json();
 
-		// const resp = await fetchConToken(`transactions/${userId}`, amount, 'POST');
+		const { amountLess, amountTo } = body;
 
-		// const body = await resp.json();
 
-		// console.log(body);
-
+		dispatch(creatingTransaction({
+			amount, userFrom, userTo, amountLess, amountTo
+		}));
 
 	}
 }
 
 
 
-const creatingTransaction = (amount, userId) => ({
+const creatingTransaction = (amount, userFrom, userTo, amountLess, amountTo) => ({
 	type: types.creatingTransaction,
 	payload: {
-		amount, userId
+		amount, userFrom, userTo, amountLess, amountTo
 	}
 })

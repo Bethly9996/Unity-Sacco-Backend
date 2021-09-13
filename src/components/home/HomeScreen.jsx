@@ -6,6 +6,7 @@ import { Navbar } from '../navbar/Navbar';
 export const HomeScreen = () => {
 
 	const { user, balance } = useSelector(state => state.auth)
+	const { lastTransaction } = useSelector(state => state.transactions)
 
 	return (
 		<div>
@@ -25,7 +26,7 @@ export const HomeScreen = () => {
 
 					<MoneyBalance>
 						${ 
-							(!balance ) ? 'Loading...' : balance
+							(!lastTransaction.amountLess)	? balance : lastTransaction.amountLess
 						}
 					</MoneyBalance>
 				</HomeInfo>

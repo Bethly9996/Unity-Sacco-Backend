@@ -6,7 +6,8 @@ export const TransactionsInfoScreen = () => {
 	return (
 		<div>
 			<Navbar />
+
+
 		</div>
 	)
 }
-

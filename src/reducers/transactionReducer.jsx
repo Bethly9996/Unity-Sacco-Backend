@@ -11,7 +11,7 @@ export const transactionReducer = (state = initialState, action) => {
 			
 			return{
 				...state,
-				...action.payload
+				lastTransaction: action.payload.amount
 			}
 	
 		default:
