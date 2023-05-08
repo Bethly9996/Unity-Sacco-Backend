@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Swal from 'sweetalert2';
 import { startLogin } from '../../actions/auth';
-import BankBackground from '../../assets/bankBackground.jpeg';
+import Sacco from './../../assets/sacco.png';
 import { useForm } from '../../hooks/useForm';
 
 export const LoginScreen = () => {
@@ -83,7 +83,7 @@ export const LoginScreen = () => {
 			</RightContainer>
 
 			<LeftContainer>
-				<ImageBackground src={ BankBackground } alt="Bank" />
+				<ImageBackground src={ Sacco } alt="Bank" />
 			</LeftContainer>
 		</Container>					
 	)

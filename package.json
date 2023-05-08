@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "bank-system",
   "version": "0.1.0",
   "private": true,
@@ -12,7 +11,7 @@
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "4.0.3",
     "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.3.0",
@@ -43,28 +42,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-=======
-  "name": "bank-system-backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node backend/app.js",
-    "server": "nodemon backend/app.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^5.0.1",
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "express-validator": "^6.12.1",
-    "jsonwebtoken": "^8.5.1",
-    "moment": "^2.29.1",
-    "mongoose": "^7.1.0",
-    "nodemon": "^2.0.12"
->>>>>>> be42d4a1fe7181b26f83f69d2d9511b6ab2b326d
   }
 }

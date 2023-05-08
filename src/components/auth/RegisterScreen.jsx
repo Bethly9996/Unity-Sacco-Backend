@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, ImageBackground, LeftContainer } from './LoginScreen'
-import BankBackground from '../../assets/bankBackground.jpeg';
+import Sacco from './../../assets/sacco.png';
 import styled from 'styled-components';
 import { useForm } from '../../hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
@@ -130,7 +130,7 @@ export const RegisterScreen = () => {
 			</RightContainer>
 		
 			<LeftContainer>
-				<ImageBackground src={ BankBackground } alt="Bank" />
+				<ImageBackground src={ Sacco } alt="Bank" />
 			</LeftContainer>
 		</Container>
 	)

@@ -13,7 +13,7 @@ export const HomeScreen = () => {
 			<Navbar />
 
 			<Container>
-				<MainTitle>Bank</MainTitle>
+				<MainTitle>Unity Sacco</MainTitle>
 
 				<HomeInfo>
 					<SubTitle>Welcome { 
@@ -25,7 +25,7 @@ export const HomeScreen = () => {
 					</Paragraph>
 
 					<MoneyBalance>
-						${ 
+						Ksh{ 
 							(!lastTransaction.amountLess)	? balance : lastTransaction.amountLess
 						}
 					</MoneyBalance>
